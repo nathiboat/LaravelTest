@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    public function makeTransactions()
+    {
+        return $this->belongsToMany(
+            Client::class, 'transaction','id','user_id'
+        );
+    }
 }

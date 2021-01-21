@@ -21,8 +21,11 @@ class TransactionFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+            'client_id' => factory(App\Client::class)->make(),
+            'transaction_date' => $this->faker->name,
+            'amount' => '/'. $this->faker->unique()->safeEmail,
         ];
     }
 }

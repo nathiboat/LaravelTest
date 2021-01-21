@@ -13,25 +13,24 @@
 </template>
 
 <script>
-import axios from 'axios'
+    import { mapActions, mapGetters } from 'vuex'
 
 export default {
-    data () {
-        return {
-            clients: null
-        }
+    computed: {
+        ...mapGetters({
+            clients: 'clients/clients'
+        })
     },
-
     methods: {
-        async getUser() {
-            let response = await axios.get('/api/clients')
-
-            this.clients = response.data.data
-        }
+        ...mapActions({
+            getClients: 'clients/getClients'
+        })
     },
 
     mounted() {
-        this.getUser()
+        this.getClients()
     }
+
+
 }
 </script>

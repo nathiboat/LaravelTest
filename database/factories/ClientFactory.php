@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ClientFactory extends Factory
 {
@@ -26,7 +25,7 @@ class ClientFactory extends Factory
             'first_name' => $this->faker->name,
             'last_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'avatar' => '/',
+            'avatar' => $this->faker->imageUrl($width = 100, $height = 100),
         ];
     }
 }

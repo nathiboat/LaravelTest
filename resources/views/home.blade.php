@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <example-component/>
-</div>
+    <a class="btn btn-primary mb-4" href="{{ url('/clients/create') }}" role="button">Add Client</a>
+    <home-page/>
 @endsection

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:sanctum')->get('/clients', function (Request $request) {
+    return ClientController::collection(Client::all());
+});
+
+Route::get('/users', function () {
+    return UserResource::collection(User::all());
+});
+
+Route::resource('clients', ClientController::class);
+Route::resource('transactions', ClientController::class);
